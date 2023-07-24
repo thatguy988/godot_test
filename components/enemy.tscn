@@ -1,0 +1,57 @@
+[gd_scene load_steps=7 format=3 uid="uid://b1jxykc83326x"]
+
+[ext_resource type="Script" path="res://components/enemy.gd" id="1_wiuet"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_fusdy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrnsi"]
+size = Vector2(22, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hxy8d"]
+size = Vector2(18, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg4k7"]
+size = Vector2(1, 31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tmgva"]
+size = Vector2(1, 31)
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_wiuet")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-3.57628e-07, -4.76837e-07)
+scale = Vector2(20, 30)
+texture = SubResource("CanvasTexture_fusdy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_hrnsi")
+
+[node name="Top_Collision" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Top_Collision"]
+position = Vector2(0, -14)
+shape = SubResource("RectangleShape2D_hxy8d")
+
+[node name="Left_Collision" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left_Collision"]
+position = Vector2(-11.5, 0.5)
+shape = SubResource("RectangleShape2D_rg4k7")
+
+[node name="Right_Collision" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right_Collision"]
+position = Vector2(11.5, 0.5)
+shape = SubResource("RectangleShape2D_tmgva")
+
+[connection signal="body_entered" from="Top_Collision" to="." method="_on_top_collision_body_entered"]
+[connection signal="body_entered" from="Left_Collision" to="." method="_on_left_collision_body_entered"]
+[connection signal="body_entered" from="Right_Collision" to="." method="_on_right_collision_body_entered"]

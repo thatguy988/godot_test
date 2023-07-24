@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cabvavponv0h1"]
+
+[ext_resource type="Texture2D" uid="uid://b7maq8ef755mi" path="res://backgrounds/grass_battle_background.png" id="1_iahvu"]
+
+[node name="BattleScene" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 249.0
+offset_top = 177.0
+offset_right = 429.0
+offset_bottom = 254.0
+text = "Battle Scene"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1154.0
+offset_bottom = 648.0
+texture = ExtResource("1_iahvu")

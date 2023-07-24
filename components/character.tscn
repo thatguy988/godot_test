@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://uikoukf4yipw"]
+
+[ext_resource type="Script" path="res://components/character.gd" id="1_bladr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k0edq"]
+radius = 7.0
+height = 26.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_r5l8s"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+position = Vector2(-1, 1)
+script = ExtResource("1_bladr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CapsuleShape2D_k0edq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
+position = Vector2(1, -1)
+scale = Vector2(14, 24)
+texture = SubResource("CanvasTexture_r5l8s")
