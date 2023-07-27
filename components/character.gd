@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -400.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
+
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
@@ -24,5 +25,15 @@ func _physics_process(delta):
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	#get_character_position()
 	move_and_slide()
+# Example function to demonstrate how to get the x and y coordinates.
+func get_character_position():
+	var character_x = global_position.x
+	var character_y = global_position.y
+
+	# Do something with the x and y coordinates...
+	print("Character X: ", character_x)
+	print("Character Y: ", character_y)
+
+

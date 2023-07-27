@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1jxykc83326x"]
+[gd_scene load_steps=8 format=3 uid="uid://b1jxykc83326x"]
 
 [ext_resource type="Script" path="res://components/enemy.gd" id="1_wiuet"]
 
@@ -16,7 +16,12 @@ size = Vector2(1, 31)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmgva"]
 size = Vector2(1, 31)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgpc7"]
+size = Vector2(22, 1)
+
 [node name="enemy" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource("1_wiuet")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -52,6 +57,15 @@ collision_mask = 2
 position = Vector2(11.5, 0.5)
 shape = SubResource("RectangleShape2D_tmgva")
 
+[node name="Bottom_Collision" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom_Collision"]
+position = Vector2(0, 16.5)
+shape = SubResource("RectangleShape2D_bgpc7")
+
 [connection signal="body_entered" from="Top_Collision" to="." method="_on_top_collision_body_entered"]
 [connection signal="body_entered" from="Left_Collision" to="." method="_on_left_collision_body_entered"]
 [connection signal="body_entered" from="Right_Collision" to="." method="_on_right_collision_body_entered"]
+[connection signal="body_entered" from="Bottom_Collision" to="." method="_on_bottom_collision_body_entered"]

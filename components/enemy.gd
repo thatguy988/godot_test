@@ -44,41 +44,27 @@ func _physics_process(delta):
 
 	
 func _on_top_collision_body_entered(body):
-	#if body.global_position.y > get_node("Top_Collision").global_position.y:
-	#	print("Enemy destroyed by colliding with the top!")
-	#	return 	 
+	queue_free()
+	
+func _on_bottom_collision_body_entered(body):
+	load_battle_scene()
 	queue_free()
 
 
 func _on_left_collision_body_entered(body):
-	#if body.global_position.x > get_node("Left_Collision").global_position.x:
-	#	print("Enemy destroyed by colliding with the left!")
-
-		
-		
-		#return 	 
-		
-	queue_free()
-	#load_battle_scene()
-	queue_free()
+ 
+	load_battle_scene()
+	#queue_free()
 
 
 func _on_right_collision_body_entered(body):
-	#if body.global_position.x < get_node("Right_Collision").global_position.x:
-	#	print("Enemy destroyed by colliding with the right!")
-
-
-		
-
-
-		#return 	 
-	queue_free()	
-	#load_battle_scene()
-	queue_free()
+	load_battle_scene()
+	#queue_free()
 	
 func load_battle_scene():
 	# Load the battle scene using preload.
-	
-	get_tree().change_scene_to_file("res://battle_scene.tscn")
 
-	
+
+	get_tree().change_scene_to_file("res://Battle_Scene.tscn")
+
+
