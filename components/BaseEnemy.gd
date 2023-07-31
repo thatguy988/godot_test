@@ -11,3 +11,4 @@ extends Resource
 @export var weakness : String 
 @export var magic_attack_power: int
 @export var healing_power: int
+@export var alive: bool = true

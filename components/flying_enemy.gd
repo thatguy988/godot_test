@@ -1,18 +1,33 @@
-extends "res://components/enemy.gd"
+extends CharacterBody2D
 
 
+var direction = 1  # 1 for moving right, -1 for moving left.
+
+
+func left_and_right_movement(delta):
+	pass
 
 func _physics_process(delta):
-	MOVE_DISTANCE = 300
-	# Update the remaining distance to move.
-	remaining_distance -= abs(velocity.x) * delta
-
-	# If the enemy has moved the desired distance in the current direction, change direction.
-	if remaining_distance <= 0:
-		direction = -direction
-		remaining_distance = MOVE_DISTANCE
-
-	# Set the movement velocity based on the current direction.
-	velocity.x = SPEED * direction
+		
+	left_and_right_movement(delta)
 
 	move_and_slide()
+
+
+func _on_left_collision_body_entered(body):
+	load_battle_scene()
+
+func _on_right_collision_body_entered(body):
+	load_battle_scene()
+
+func _on_bottom_collision_body_entered(body):
+	load_battle_scene()
+
+func _on_top_collision_body_entered(body):
+	pass
+	
+	
+func load_battle_scene():
+	pass
+	
+

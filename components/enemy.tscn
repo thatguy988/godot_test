@@ -1,8 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b1jxykc83326x"]
 
 [ext_resource type="Script" path="res://components/enemy.gd" id="1_wiuet"]
-
-[sub_resource type="CanvasTexture" id="CanvasTexture_fusdy"]
+[ext_resource type="Texture2D" uid="uid://dhn1n5un0kaph" path="res://assets/Enemies/01.png" id="2_3xy1b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hrnsi"]
 size = Vector2(22, 31)
@@ -25,9 +24,9 @@ collision_mask = 3
 script = ExtResource("1_wiuet")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-3.57628e-07, -4.76837e-07)
-scale = Vector2(20, 30)
-texture = SubResource("CanvasTexture_fusdy")
+position = Vector2(-4.76837e-07, -4)
+scale = Vector2(0.666667, 0.916667)
+texture = ExtResource("2_3xy1b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 0.5)

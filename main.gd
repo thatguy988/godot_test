@@ -7,5 +7,5 @@ func _on_quit_pressed():
 
 
 func _on_play_pressed():
-	
+	#get_tree().change_scene_to_file("res://backgrounds/parallaxbackground.tscn")
 	get_tree().change_scene_to_file("res://camera/camera.tscn")
